@@ -1,0 +1,63 @@
+# ──────────────────────────────────────────────
+#  Global ignores
+# ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ──────────────────────────────────────────────
+#  Editor & IDE metadata
+# ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace
+*.sublime*
+*.sw?
+*~
+
+# ──────────────────────────────────────────────
+#  Python build / cache artifacts
+# ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual-env directories
+.env
+.venv/
+venv/
+ENV/
+
+# ──────────────────────────────────────────────
+#  Docker build leftovers
+# ──────────────────────────────────────────────
+**/*.tar        # image exports
+docker-compose.override.yml
+
+# ──────────────────────────────────────────────
+#  Logs & runtime files
+# ──────────────────────────────────────────────
+*.log
+logs/
+
+# ──────────────────────────────────────────────
+#  Kubernetes “secret” overlays / scratch files
+# ──────────────────────────────────────────────
+k8s/*secret*.yaml
+*.tmp
+*.bak
+*.swp
+
+# ──────────────────────────────────────────────
+#  Compressed archives
+# ──────────────────────────────────────────────
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz

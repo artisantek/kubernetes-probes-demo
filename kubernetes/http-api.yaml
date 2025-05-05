@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: http-api
+  template:
+    metadata: 
+      labels: 
+        app: http-api
+    spec:
+      containers:
+      - name: api
+        image: artisantek/probes:http-api-v1
+        ports: 
+        - containerPort: 8000
+        readinessProbe:
+          httpGet: 
+            path: /ready
+            port: 8000
+          periodSeconds: 5
+          failureThreshold: 5
+          initialDelaySeconds: 5

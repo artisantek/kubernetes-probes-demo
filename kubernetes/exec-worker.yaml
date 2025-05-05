@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exec-worker
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: exec-worker
+  template:
+    metadata: 
+      labels: 
+        app: exec-worker
+    spec:
+      containers:
+      - name: worker
+        image: artisantek/probes:exec-worker-v1
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "redis-cli -h $REDIS_HOST ping | grep PONG"
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
+          initialDelaySeconds: 5
